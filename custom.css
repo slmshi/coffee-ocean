@@ -8,6 +8,16 @@
     );
 }
 
+/*hover tooltip*/
+
+.theme-dark .tooltipBlack_b6c360, .tooltip_b6c360, .scroller_bc9592, .popout-xwjvsX.themedPopout-1TrfdI, .reactionTooltip_fba897, .container_be6a5c {
+	background: linear-gradient(to top, transparent 42%, rgba(77,80,86) 100%) !important;
+	background-color: rgba(65,67,72) !important;
+	border-radius: 5px !important;
+	box-shadow: 0 0 3px 3px rgba(0,0,0,0.6), inset 0 0 0 1px rgb(92,92,92) !important;
+	/*hover tooltip*/
+}
+
 /* top panel */
 
 .subtitleContainer_a7d72e {
@@ -38,7 +48,7 @@
 .container_e44302.title_a7d72e:hover {
     box-shadow: 0 0 5px 5px #283555;
     text-shadow: -2px 2px 3px #455d8f;
-    opacity: 1;
+    backdrop-filter: blur(10px);
 }
 
 /* Top Panel (dms username) */
@@ -107,7 +117,8 @@
 /* dms */
 
 /* dm panel */
-.scroller_c47fa9 {
+
+.channel_c91bad.container_b15955 {
     position: relative;
     animation-name: privateChannels;
     animation-fill-mode: forwards;
@@ -135,12 +146,41 @@
     animation-name: scrollerInner;
     animation-fill-mode: forwards;
     animation-duration: 0.5s;
-    animation-delay: 0.3s;
     box-shadow: inset 0px 0px 5px 5 white;
 }
 
+
+/* chat box */
+
+/* text box */
+
+.channelTextArea_a7d72e.channelTextArea_d0696b {
+    position: relative;
+
+    color: wheat;
+    background-color: rgba(184, 179, 245, 0.048);
+    transition: all 0.2s ease-in-out;
+    backdrop-filter: blur(10px);
+}
+
+/* focused text box */
+.channelTextArea_a7d72e.channelTextArea_d0696b:focus-within {
+    box-shadow: 0px 0px 5px 1px rgb(184, 179, 245);
+    background-color: rgba(184, 179, 245, 0.281);
+    backdrop-filter: blur(10px);
+}
+
+.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b {
+    color: wheat;
+    text-shadow: 0px 0px 1.5px wheat;
+}
 /* chatbox_bg */
-.form_a7d72e { 
+.form_a7d72e {
+    background: transparent;
+    height: max-content;
+}
+
+.channelBottomBarArea_a7d72e {
     background: transparent;
 }
 
@@ -148,30 +188,53 @@
     background: transparent;
 }
 
-
-
-/* chat box */
-.channelTextArea_a7d72e.channelTextArea_d0696b {
-    position: relative;
-    animation-name: chatbox;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+.themedBackground_d0696b{
+    background: transparent;
 }
 
+/* spacer next to chatbox */
+.scrollerSpacer_e2e187 {
+    background-color: transparent;
+}
+
+/* attachment popup */
+.attachment_a4623d {
+    color: wheat;
+    background: linear-gradient(
+        -45deg,
+        rgb(0, 0, 0) 0%,
+        rgb(24, 32, 49) 100%
+    );
+}
+
+.cancelButton_a4623d {
+    filter: drop-shadow(0px 0px 4px white);
+}
+/* (attachment popup) ¬¬¬¬¬¬¬¬¬¬¬ */
+/* (chatbox) ¬¬¬¬¬¬¬¬¬¬¬ */
+
+
+/* messages */
+
 /* message item */
-.messageListItem_d5deea {
+.messageListItem_d5deea{
     position: relative;
+    animation-name: messageListItem;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
     transition: all 0.2s ease-in;
     width: fit-content;
     margin-left: 16px;
     border-radius: 10px;
     background: linear-gradient(
         -45deg,
-        rgb(22, 28, 43) 0%,
-        rgba(58, 77, 119, 0.25) 100%
+        rgba(22, 28, 43, 0.5) 0%,
+        rgba(58, 77, 119, 0.5) 100%
     );
     box-shadow: 0 0 5px 5px #1820315e;
     margin-bottom: 5px;
+    margin-right: 10px;
 }
 
 .messageListItem_d5deea:hover {
@@ -184,7 +247,10 @@
         rgba(45, 60, 92, 0.25) 100%
     );
     z-index: 2;
+    margin-left: 16px;
+    margin-right: 40px;
 }
+
 
 /* username on text */
 .headerText_f9f2ca {
@@ -197,7 +263,7 @@
     text-shadow: 0px 0px 3px white;
 }
 
-/* ¬¬¬¬¬¬¬¬¬¬ */
+/* (Dms) ¬¬¬¬¬¬¬¬¬¬ */
 
 
 /* mini profile view */
@@ -208,8 +274,23 @@
     position: relative;
     animation-name: mini_profile_View;
     animation-fill-mode: forwards;
-    animation-delay: 0.3s;
     animation-duration: 0.5s;
+}
+
+/* Small Profile View */
+
+.userTagUsername_c32acf {
+    transition: all 0.2s ease-in;
+}
+
+.userTagUsername_c32acf:hover {
+    filter: drop-shadow(0px 0px 1px wheat);
+}
+
+/* activity */
+.activity_cd74cc {
+    background-color:  transparent;
+    filter: drop-shadow(0px 0px 1px wheat);
 }
 
 /* add friend and more button */
@@ -221,22 +302,39 @@
     box-shadow: 0px 0px 3px 3px white;
 }
 
+/* (Small profile view) ¬¬¬¬¬¬¬¬¬¬¬¬¬ */
+
+
+/* Group dms */
+
+.membersWrap_cbd271 {
+    opacity: 0;
+    position: relative;
+    background-color: transparent;
+    animation-name: membersWrap;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.members_cbd271.thin_c49869.scrollerBase_c49869.fade_c49869 {
+    background: linear-gradient(
+        45deg,
+        rgba(7, 10, 15, 0.75) 0%,
+        rgba(45, 60, 92, 0.2) 100%
+    );
+    border-radius: 15px;
+    text-shadow: 0px 0px 1px wheat;
+}
+
+.wrapper_cdfd51 {
+    background: transparent;
+}
+
+.wrapper_b75bb9 {
+    background: transparent;
+}
+
 /* animations */
-
-@keyframes chatContent{
-    0% {opacity: 0; bottom: 50px}
-    100% {opacity: 1; bottom: 0px}
-}
-
-@keyframes chatbox {
-    0% {opacity: 0; bottom: -50px;}
-    100% {opacity: 1; bottom: 0px;}
-}
-
-@keyframes chatbox_bg {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
-}
 
 @keyframes active_now{
     0% {opacity: 0; left: 50px}
@@ -253,17 +351,22 @@
     100% {opacity: 1; top: 0px}
 }
 
-@keyframes messageWrapper{
-    0% {opacity: 0; top: -100px}
-    100% {opacity: 1; top: 0px}
+@keyframes messageListItem {
+    0% {opacity: 0; right: 50px;}
+    100% {opacity: 1; right: 0px;}
 }
 
 @keyframes scrollerInner{
-    0% {opacity: 0; left: -50px}
-    100% {opacity: 1; left: 0px}
+    0% {opacity: 0; left: -100px;}
+    100% {opacity: 1; left: 0px;}
 }
 
 @keyframes mini_profile_View{
     0% {opacity: 0; right: -50px}
     100% {opacity: 1; right: 0px}
+}
+
+@keyframes membersWrap {
+    0% {opacity: 0; right: -100px;}
+    100% {opacity: 1; right: 0px;}
 }
